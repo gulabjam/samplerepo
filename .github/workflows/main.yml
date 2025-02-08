@@ -1,7 +1,8 @@
-name: 23f3002677@ds.study.iitm.ac.in
+name: Daily Commit Job
+
 on:
   schedule:
-    - cron: "15 3 * * *" 
+    - cron: "29 14 * * *" 
 
 jobs:
   daily-commit:
