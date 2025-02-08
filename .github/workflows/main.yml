@@ -1,0 +1,23 @@
+name: Daily Commit Job
+
+on:
+  schedule:
+    - cron: "* * * * *" 
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Commit (23f3002677@ds.study.iitm.ac.in)
+        run: |
+          echo "Last run: $(date)" > last_run.txt
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "23f3002677@ds.study.iitm.ac.in"
+          git add last_run.txt
+          git commit -m "Automated commit: $(date)"
+          git push
+
